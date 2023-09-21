@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inteactive Card Details</title>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <div class="section-cards-front">
+      <div class="top pad">
+        <span class="btn">
+          <button class="btn--big"></button>
+          <button class="btn--small"></button>
+        </span>
+      </div>
+      <div class="card--number pad">
+        <p class="card">0000 0000 0000 0000</p>
+      </div>
+
+      <div class="holder pad">
+        <p class="holder--name">Yazid Musa</p>
+        <p class="expiry--date">00/00</p>
+      </div>
+    </div>
+
+    <div class="section-cards-back">
+      <div class="top pad">
+        <div class="black--bar"></div>
+      </div>
+      <div class="card--numbers pad">
+        <p class="card">000</p>
+      </div>
+
+      <div class="image">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="186"
+          height="26"
+          viewBox="0 0 186 26"
+          fill="none"
+          class="image image--icon"
+        >
+          <rect width="115" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="121" width="22" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="149" width="22" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="177" width="9" height="4" rx="2" fill="#ADB5BE" />
+          <rect
+            width="115"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 186 22)"
+            fill="#ADB5BE"
+          />
+          <rect
+            width="22"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 65 22)"
+            fill="#ADB5BE"
+          />
+          <rect
+            width="22"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 37 22)"
+            fill="#ADB5BE"
+          />
+          <rect
+            width="9"
+            height="4"
+            rx="2"
+            transform="matrix(-1 0 0 1 9 22)"
+            fill="#ADB5BE"
+          />
+          <rect x="42" y="11" width="60" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="14" y="11" width="22" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="108" y="11" width="46" height="4" rx="2" fill="#ADB5BE" />
+          <rect x="160" y="11" width="9" height="4" rx="2" fill="#ADB5BE" />
+        </svg>
+      </div>
+    </div>
+
+    <form action="">
+      <div class="section-cards-form">
+        <div class="form--name success error">
+          <label for="name">Card holder</label>
+          <input
+            type="text"
+            name="holder--name"
+            id="holder--name--id"
+            placeholder="e.g Yazid Musa"
+          />
+        </div>
+
+        <div class="form--number success error">
+          <label for="number">Card Number</label>
+          <input
+            type="number"
+            name="holder--number"
+            id="holder--number--id"
+            placeholder="e.g 0000 0000 0000 0000"
+          />
+        </div>
+
+        <div class="form-date-cvc">
+          <div>
+            <div class="form--date">
+              <label for="date">Exp. Date [MM/YY]</label>
+              <div class="expiry--date success error">
+                <input
+                  type="number"
+                  name="holder--month"
+                  id="holder--month--id"
+                  placeholder="MM"
+                  class="month"
+                />
+                <input
+                  type="number"
+                  name="holder--year"
+                  id="holder--year--id"
+                  placeholder="YY"
+                  class="year"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="form--cvc success error">
+              <label for="cvc">cvc Number</label>
+              <input
+                type="number"
+                name="holder--cvc"
+                id="holder--cvc--id"
+                placeholder="e.g 123"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="section-cards-thanks">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="80"
+            height="80"
+            viewBox="0 0 80 80"
+            fill="none"
+            class="thanks--icon"
+          >
+            <circle cx="40" cy="40" r="40" fill="url(#paint0_linear_311_137)" />
+            <path
+              d="M28 39.9199L36.0801 48L52.0801 32"
+              stroke="white"
+              stroke-width="3"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_311_137"
+                x1="-23.0143"
+                y1="11.5071"
+                x2="1.03143e-06"
+                y2="91.5071"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#6348FE" />
+                <stop offset="1" stop-color="#610595" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <h1 class="thanks--text">Thank You</h1>
+          <p class="success--details">We’ve added your card details</p>
+        </div>
+
+        <button class="btn--submit" type="submit">Continue</button>
+      </div>
+    </form>
+  </body>
+</html>
