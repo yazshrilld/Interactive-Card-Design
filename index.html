@@ -21,7 +21,7 @@
 
       <div class="holder pad">
         <p class="holder--name">Yazid Musa</p>
-        <p class="expiry--date">00/00</p>
+        <p class="expiry--date" id="mm--value">00/<span class="yy--value">00</span></p>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
         <div class="black--bar"></div>
       </div>
       <div class="card--numbers pad">
-        <p class="card">000</p>
+        <p class="card" id="card--cvv--value">000</p>
       </div>
 
       <div class="image">
@@ -82,9 +82,9 @@
       </div>
     </div>
 
-    <form action="">
+    <form action="" id="card--form">
       <div class="section-cards-form">
-        <div class="form--name success error">
+        <div class="form--name">
           <label for="name">Card holder</label>
           <input
             type="text"
@@ -92,9 +92,10 @@
             id="holder--name--id"
             placeholder="e.g Yazid Musa"
           />
+          <small class="small">Error Message</small>
         </div>
 
-        <div class="form--number success error">
+        <div class="form--number">
           <label for="number">Card Number</label>
           <input
             type="number"
@@ -102,40 +103,50 @@
             id="holder--number--id"
             placeholder="e.g 0000 0000 0000 0000"
           />
+          <small>Error Message</small>
         </div>
 
         <div class="form-date-cvc">
-          <div>
-            <div class="form--date">
-              <label for="date">Exp. Date [MM/YY]</label>
-              <div class="expiry--date success error">
+          <div class="form--date">
+            <label for="date">Exp. Date [MM/YY]</label>
+            <div class="expiry--date">
+              <div class="mm-exp--date">
                 <input
                   type="number"
                   name="holder--month"
                   id="holder--month--id"
                   placeholder="MM"
                   class="month"
+                  min="1"
+                  max="31"
                 />
+                <small>Error Message</small>
+              </div>
+              <div class="yy-exp--date">
                 <input
                   type="number"
                   name="holder--year"
                   id="holder--year--id"
                   placeholder="YY"
                   class="year"
+                  min="1"
+                  max="12"
                 />
+                <small>Error Message</small>
               </div>
             </div>
           </div>
-          <div>
-            <div class="form--cvc success error">
-              <label for="cvc">cvc Number</label>
-              <input
-                type="number"
-                name="holder--cvc"
-                id="holder--cvc--id"
-                placeholder="e.g 123"
-              />
-            </div>
+          <div class="form--cvc">
+            <label for="cvc">cvc Number</label>
+            <input
+              type="number"
+              name="holder--cvc"
+              id="holder--cvc--id"
+              placeholder="e.g 123"
+              min="100"
+              max="999"
+            />
+            <small>Error Message</small>
           </div>
         </div>
 

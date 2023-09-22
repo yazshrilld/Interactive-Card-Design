@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 html {
@@ -73,11 +74,8 @@ body {
 }
 
 .holder {
-  display: flex;
-  align-items: flex-end;
-  gap: 9px;
-  justify-content: space-between;
-  margin-bottom: 95px;
+  display: grid;
+  grid-template-columns: 300px auto;
 }
 
 .holder--name,
@@ -190,7 +188,6 @@ input[type="text"] {
   height: 40px;
   padding: 0 15px;
   appearance: none;
-
 }
 
 input[type="number"] {
@@ -201,7 +198,32 @@ input[type="number"] {
   height: 40px;
   padding: 0 15px;
   appearance: none;
+}
 
+.form--name small,
+.form--number small,
+.expiry--date small,
+.form--cvc small,
+.form--date small {
+  visibility: hidden;
+  position: absolute;
+  color: #e74c3c;
+  font-weight: bold;
+  bottom: -25%;
+  left: 0;
+}
+
+.expiry--date small {
+  position: absolute;
+  bottom: -35%;
+}
+
+.error-content {
+  content: "error, please check your input field";
+  color: #e74c3c;
+  /* position: absolute;
+  bottom: -25%;
+  left: 0; */
 }
 
 .form--name {
@@ -209,67 +231,98 @@ input[type="number"] {
   flex-direction: column;
   gap: 10px;
   margin: 25px 0px;
+  position: relative;
 }
 
-.form--name.success input[type="text"]{
-    border: 2px solid #2ECC71;
+.form--name.success input[type="text"] {
+  border: 2px solid #2ecc71;
 }
 
-.form--name.error input[type="text"]{
-    border: 2px solid #E74C3C;
+.form--name.error input[type="text"] {
+  border: 2px solid #e74c3c;
 }
 
-.form--number.success input[type="number"]{
-    border: 2px solid #2ECC71;
+.form--name.error small {
+  visibility: visible;
+  color: #e74c3c;
+  text-transform: lowercase;
+  font-family: sans-serif;
 }
 
-.form--number.error input[type="number"]{
-    border: 2px solid #E74C3C;
+.form--number.success input[type="number"] {
+  border: 2px solid #2ecc71;
 }
 
-.expiry--date.success input[type="number"]{
-    border: 2px solid #2ECC71;
+.form--number.error input[type="number"] {
+  border: 2px solid #e74c3c;
 }
 
-.expiry--date.error input[type="number"]{
-    border: 2px solid #E74C3C;
+.form--number.error small {
+  visibility: visible;
+  text-transform: lowercase;
+  font-family: sans-serif;
 }
 
-
-.form--cvc.error input[type="number"]{
-    border: 2px solid #E74C3C;
+.expiry--date.success input[type="number"] {
+  border: 2px solid #2ecc71;
 }
 
-.form--cvc.success input[type="number"]{
-    border: 2px solid #2ECC71;
+.expiry--date.error input[type="number"] {
+  border: 2px solid #e74c3c;
 }
 
-.form--name.error input[type="text"]{
-    border: 2px solid #E74C3C;
+.expiry--date.error small {
+  visibility: visible;
+  text-transform: lowercase;
+  font-family: sans-serif;
 }
 
+.cvc.error input[type="number"] {
+  border: 2px solid #e74c3c;
+}
+
+.cvc.success input[type="number"] {
+  border: 2px solid #2ecc71;
+}
+
+.form--cvc.error small {
+  visibility: visible;
+  text-transform: lowercase;
+  font-family: sans-serif;
+}
+
+.form--name.error input[type="text"] {
+  border: 2px solid #e74c3c;
+}
 
 .form--number {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-bottom: 25px;
+  position: relative;
 }
 
 .form--date {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-bottom: 20px;
-  max-width: 12rem;
+  margin-bottom: 10px;
+  /* width: 100%; */
+  position: relative;
 }
 
 .expiry--date {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 5px;
   width: 60%;
+  position: relative;
+}
+
+.expiry--date .mm-exp--date, .expiry--date .yy-exp--date{
+    width: 60%;
 }
 
 .form--cvc {
@@ -277,14 +330,17 @@ input[type="number"] {
   flex-direction: column;
   gap: 10px;
   margin-bottom: 20px;
-  width: 72%;
+  width: 100%;
+  position: relative;
 }
 
 .form-date-cvc {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 5.5rem;
+  /* align-items: center; */
+  /* width: 100%; */
+  gap: 10px;
+  position: relative;
+  margin-bottom: 5px;
 }
 
 .btn--submit {
@@ -297,9 +353,9 @@ input[type="number"] {
   border-radius: 8px;
 }
 
-.btn--submit:hover, .btn--submit:active {
-    background-color: #370256;
-
+.btn--submit:hover,
+.btn--submit:active {
+  background-color: #370256;
 }
 
 .section-cards-thanks {
