@@ -4,6 +4,18 @@ const cardNumber = document.getElementById("holder--number--id");
 const cardMonth = document.getElementById("holder--month--id");
 const cardYear = document.getElementById("holder--year--id");
 const cardCvc = document.getElementById("holder--cvc--id");
+const thanksCard = document.querySelector(".section-cards-thanks");
+const cardsForm = document.querySelector(".section-cards-form");
+const thankyouButton = document.querySelector(".btn--submits");
+console.log(thankyouButton);
+
+const cardPin = document.querySelector(".card");
+const holderName = document.querySelector(".holder--name");
+const mmValue = document.getElementById("mm--value");
+const yyValue = document.getElementById("yy--value");
+const cvvValue = document.getElementById("card--cvv--value");
+console.log(cvvValue.innerHTML);
+// console.log(mmValue.innerHTML.slice(0, 2));
 
 const cardName_1 = cardName.parentElement;
 const cardNumber_1 = cardNumber.parentElement;
@@ -11,21 +23,21 @@ const cardMonth_1 = cardMonth.parentElement;
 const cardYear_1 = cardYear.parentElement;
 const cardCvc_1 = cardCvc.parentElement;
 let cardName_11 = "";
-console.log("Card Number: ", cardCvc.parentElement);
-console.log("Card Number: ", cardCvc.previousElementSibling);
+// console.log("Card Number: ", cardCvc.parentElement);
+// console.log("Card Number: ", cardCvc.previousElementSibling);
 function nameSuccess(input, message) {
   const errorControl = input.parentElement;
   errorControl.className = "form--name success";
   if (cardName_1.className === "form--name error") {
-    console.log("false");
-    let cardName_11 = false
+    // console.log("false");
+    let cardName_11 = false;
   } else if (cardName_1.className === "form--name success") {
-    console.log("true");
-    let cardName_11 = true
+    // console.log("true");
+    let cardName_11 = true;
   } else {
-    console.log("nothing", cardName_1.className);
+    // console.log("nothing", cardName_1.className);
   }
-  return cardName_11
+  return cardName_11;
 }
 
 function nameError(input, message) {
@@ -54,7 +66,7 @@ function monthSuccess(input, message) {
 
 function monthError(input, message) {
   const errorControl = input.parentElement;
-  console.log(errorControl);
+  // console.log(errorControl);
   const small = errorControl.querySelector("small");
   small.innerText = message;
   errorControl.className = "expiry--date error";
@@ -72,29 +84,17 @@ function yearError(input, message) {
   errorControl.className = "expiry--date error";
 }
 
-// function cvvSuccess(input, message) {
-//   const errorControl = input.parentElement;
-//   errorControl.className = "form--cvc success";
-// }
-
-function cvvLabelSuccess(input, message) {
-  const errorControl = input.previousElementSibling;
-  errorControl.className = "cvc success";
+function cvvSuccess(input, message) {
+  const errorControl = input.parentElement;
+  errorControl.className = "form--cvc success";
 }
 
-function cvvLabelError(input) {
-  const errorControl = input.previousElementSibling;
-  // const small = errorControl.querySelector("small");
-  // small.innerText = message;
-  errorControl.className = "cvc error";
+function cvvError(input, message) {
+  const errorControl = input.parentElement;
+  const small = errorControl.querySelector("small");
+  small.innerText = message;
+  errorControl.className = "form--cvc error";
 }
-
-// function cvvError(input, message) {
-//   const errorControl = input.previousElementSibling;
-//   const small = errorControl.querySelector("small");
-//   small.innerText = message;
-//   errorControl.className = "form--cvc error";
-// }
 
 let myFields;
 function checkInputs() {
@@ -126,6 +126,11 @@ function checkInputs() {
       cardNumber,
       "why you de enter less than 16 digit number!!😠😠😠😠 Take time ooo!!!"
     );
+  } else if (cardNumberValue.length > 16) {
+    numError(
+      cardNumber,
+      "It's more than 16 charrecters, apologise before you proceed😠😠!!!"
+    );
   } else {
     numSuccess(cardNumber);
   }
@@ -143,9 +148,9 @@ function checkInputs() {
   }
 
   if (cardCvcValue === "") {
-    cvvLabelError(cardCvc);
+    cvvError(cardCvc, "😡😡 cannot be blank");
   } else {
-    cvvLabelSuccess(cardCvc);
+    cvvSuccess(cardCvc);
   }
 
   // if (cardCvc_1.className === "form-cvc error") {
@@ -163,8 +168,17 @@ function checkInputs() {
   //   console.log("false");
   // }
 
-  console.log(cardCvc_1.className);
+  // console.log(cardCvc_1.className);
 }
+thankyouButton.addEventListener("submit", function (e) {
+  e.preventDefault();
+  cardPin.innerHTML = "";
+  holderName.innerHTML = "";
+  cvvValue.innerHTML = "";
+  mmValue.innerHTML = "";
+  thanksCard.classList.remove("success");
+  cardsForm.classList.remove("completed");
+});
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -180,22 +194,29 @@ form.addEventListener("submit", (e) => {
     cardYearValue: cardYearValue,
     cardCvcValue: cardCvcValue,
   };
-  console.log(
-    allValues.cardNameValue.length,
-    allValues.cardNumberValue.length,
-    allValues.cardMonthValue.length,
-    allValues.cardYearValue.length,
-    allValues.cardCvcValue.length
-  );
 
-  console.log(allValues);
+  // console.log(allValues);
 
-  if(cardName_1.className === "form--name success" && cardNumber_1.className === "form--number success" && cardMonth_1.className === "expiry--date success" && cardName_1.className === "form--name success") {
-    console.log("Yazid");
-  }
-  else {
-console.log("Topa");
-  }
+  if (
+    cardName_1.className === "form--name success" &&
+    cardNumber_1.className === "form--number success" &&
+    cardMonth_1.className === "expiry--date success" &&
+    cardCvc_1.className === "form--cvc success" &&
+    cardYearValue !== ""
+  ) {
+    console.log({ allValues });
+    cardPin.innerHTML = allValues.cardNumberValue;
+    holderName.innerHTML = allValues.cardNameValue;
+    cvvValue.innerHTML = allValues.cardCvcValue;
+    mmValue.innerHTML = allValues.cardMonthValue;
+    // yyValue.innerHTML = allValues.cardYearValue;
+
+    if (cardPin.innerHTML === allValues.cardNumberValue) {
+      console.log("Yazid");
+      thanksCard.classList.add("success");
+      cardsForm.classList.add("completed");
+    } 
+  } 
 
   checkInputs();
 });
