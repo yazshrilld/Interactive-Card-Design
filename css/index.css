@@ -438,11 +438,12 @@ input[type="number"] {
   }
 
   body {
-  background-image: linear-gradient(to right, #47a2ff, #d53aff, #ff834a 22%, #ffffff 22% 100%);
+  background-image: linear-gradient(to bottom, #47a2ff, #d53aff, #ff834a 22%, #ffffff 22% 100%);
   }
 
   .section-cards-front {
     margin-top: 20px;
+    /* background: linear-gradient(164deg, #6348fe 4.74%, #610595 88.83%); */
     background: radial-gradient(circle at bottom right, #47a2ff, #d53aff, #ff834a);
     width: 40rem;
     height: 22rem;
