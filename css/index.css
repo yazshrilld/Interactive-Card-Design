@@ -11,27 +11,16 @@ html {
 
 body {
   height: 100vh;
-  /* background: linear-gradient(
-    to right,
-    #6348fe 5%,
-    #610595 10% 15%,
-    #21092f 17% 25%,
-    #ffffff 22% 100%
-  ); */
-
   background-image: linear-gradient(to right, #47a2ff, #d53aff, #ff834a 22%, #ffffff 22% 100%);
-  /* background: #ffffff; */
 }
 
 .first--card {
   border-radius: 10px;
   background: linear-gradient(164deg, #47a2ff, #d53aff, #ff834a);
-  /* background: linear-gradient(164deg, #6348fe 4.74%, #610595 88.83%); */
 }
 
 .section-cards-front {
   margin-top: 20px;
-  /* background: linear-gradient(164deg, #6348fe 4.74%, #610595 88.83%); */
   background: radial-gradient(circle at bottom right, #47a2ff, #d53aff, #ff834a);
 
   width: 40rem;
@@ -449,19 +438,12 @@ input[type="number"] {
   }
 
   body {
-    background: linear-gradient(
-    to bottom,
-    #6348fe 5%,
-    #610595 10% 15%,
-    #21092f 17% 25%,
-    #ffffff 22% 100%,
-    #FFFFFF 100%
-  );
+  background-image: linear-gradient(to right, #47a2ff, #d53aff, #ff834a 22%, #ffffff 22% 100%);
   }
 
   .section-cards-front {
     margin-top: 20px;
-    background: linear-gradient(164deg, #6348fe 4.74%, #610595 88.83%);
+    background: radial-gradient(circle at bottom right, #47a2ff, #d53aff, #ff834a);
     width: 40rem;
     height: 22rem;
     border-radius: 10px;
