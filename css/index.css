@@ -386,8 +386,8 @@ input[type="number"] {
   height: 35rem;
   border-radius: 10px;
   position: absolute;
-  top: 10%;
-  left: 20%;
+  top: 35%;
+  left: 55%;
   font-family: Space Grotesk;
   font-size: 10px;
   font-style: normal;
@@ -521,8 +521,8 @@ input[type="number"] {
     height: 35rem;
     border-radius: 10px;
     position: absolute;
-    top: 35%;
-    left: 50%;
+    top: 55%;
+    left: 10%;
     font-family: Space Grotesk;
     font-size: 10px;
     color: #2ecc71;
