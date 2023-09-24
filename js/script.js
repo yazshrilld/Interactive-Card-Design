@@ -25,6 +25,25 @@ const cardCvc_1 = cardCvc.parentElement;
 let cardName_11 = "";
 // console.log("Card Number: ", cardCvc.parentElement);
 // console.log("Card Number: ", cardCvc.previousElementSibling);
+
+const input = document.querySelector(".input-text");
+input.addEventListener("input", (e) => {
+  let string = e.target.value;
+  console.log("From Initial: ", { string });
+  string = string.replace(/\s/g, "");
+  console.log("From Replace: ", { string });
+
+  let resultString = "";
+  for (let i = 0; i < string.length; i++) {
+    resultString += string[i];
+    console.log("from inside: ", { resultString });
+    if ((i + 1) % 4 === 0 && i !== string.length - 1) {
+      console.log("From i: ", i);
+      resultString += " ";
+    }
+  }
+  input.value = resultString;
+});
 function nameSuccess(input, message) {
   const errorControl = input.parentElement;
   errorControl.className = "form--name success";
@@ -215,8 +234,8 @@ form.addEventListener("submit", (e) => {
       console.log("Yazid");
       thanksCard.classList.add("success");
       cardsForm.classList.add("completed");
-    } 
-  } 
+    }
+  }
 
   checkInputs();
 });
